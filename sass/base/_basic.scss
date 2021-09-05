@@ -1,0 +1,108 @@
+body {
+	background-color: $white;
+	color: $color-main-text;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 1.71;
+	letter-spacing: 0.03em;
+	// margin-right: auto;
+	// margin-left: auto;
+}
+.page.modal-open {
+	overflow: hidden;
+}
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.link {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	font-style: normal;
+	line-height: 1.14;
+	letter-spacing: 0.02em;
+
+	&--policy {
+		text-decoration: underline;
+		color: $accent;
+	}
+}
+
+.container {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	@media screen and (min-width: 1200px) {
+		width: 1200px;
+	}
+}
+.page-main {
+	@media screen and (max-width: 767px) {
+		padding-top: 60px;
+	}
+}
+.no-padding {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+// .flexbox {
+// 	display: flex;
+// 	align-items: center;
+// }
+
+p,
+h1,
+h2,
+h3,
+h4 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+// // общие стили текста
+.section {
+	font-style: normal;
+	&__title {
+		margin-top: 0px;
+		margin-bottom: 0px;
+		font-weight: 700;
+		font-size: 28px;
+		line-height: 1.17;
+		text-align: center;
+		letter-spacing: 0.03em;
+		color: $color-main-text;
+	}
+
+	&__text {
+		color: $color-secondary-text;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1.71;
+	}
+	&__text--position {
+		text-align: center;
+	}
+}

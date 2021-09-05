@@ -1,0 +1,159 @@
+.header {
+	width: 100%;
+	border-bottom: 1px solid #ececec;
+	&__btn {
+		padding: 0;
+		margin-left: auto;
+		text-align: center;
+		background-color: transparent;
+		border: none;
+		z-index: 5;
+		&:hover,
+		&:focus {
+			fill: $accent;
+		}
+		@media screen and (min-width: 768px) {
+			display: none;
+		}
+	}
+	&__icon {
+		display: block;
+		.menu--is-open & {
+			display: none;
+		}
+		&:hover,
+		&:focus {
+			fill: $accent;
+		}
+	}
+	&__icon-close {
+		display: none;
+		.menu--is-open & {
+			display: block;
+		}
+		&:hover,
+		&:focus {
+			fill: $accent;
+		}
+	}
+	@media screen and (max-width: 767px) {
+		position: fixed;
+		top: 0;
+		z-index: 55;
+	}
+}
+
+.header-container {
+	display: flex;
+	background-color: $white;
+
+	@media screen and (max-width: 767px) {
+		position: relative;
+		top: 0;
+		height: 61px;
+		align-items: center;
+		justify-content: space-between;
+	}
+	@media screen and (min-width: 768px) {
+		height: 80px;
+		display: flex;
+		align-items: center;
+	}
+	@media screen and (min-width: 1200px) {
+		position: static;
+		height: 80px;
+	}
+}
+
+.header-nav {
+	width: 100%;
+	overflow: auto;
+	@media screen and (max-width: 767px) {
+		position: absolute;
+		top: 60px;
+		left: 0;
+
+		padding-top: 60px;
+		background-color: $white;
+		transform: translateY(-100%);
+		transition: transform 250ms linear;
+
+		text-align: center;
+
+		&.menu--is-open {
+			height: 393px;
+			transform: translateY(0%);
+			box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 1px 3px rgba(0, 0, 0, 0.16);
+		}
+	}
+
+	@media screen and (min-width: 768px) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-left: 93px;
+	}
+	@media screen and (min-width: 955px) {
+		display: flex;
+		align-items: baseline;
+	}
+}
+
+.menu {
+	&__link {
+		transition-duration: 250ms;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		color: $color-main-text;
+	}
+	&__link:hover,
+	&__link:focus {
+		color: $accent;
+	}
+
+	&__link-current {
+		position: relative;
+		color: $accent;
+
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 4px;
+
+			background-color: $accent;
+
+			border-radius: 2px;
+		}
+	}
+	@media screen and (max-width: 767px) {
+		font-style: normal;
+		font-size: 18px;
+		line-height: 1.17;
+		text-align: center;
+		letter-spacing: 0.02em;
+
+		&__item:not(:last-child) {
+			margin-bottom: 50px;
+		}
+		&__link {
+			padding-bottom: 9px;
+		}
+	}
+
+	@media screen and (min-width: 768px) {
+		display: flex;
+
+		font-size: 14px;
+		&__item:not(:last-child) {
+			margin-right: 50px;
+		}
+
+		&__link {
+			display: inline-block;
+			padding-top: 36px;
+			padding-bottom: 31px;
+		}
+	}
+}

@@ -1,0 +1,74 @@
+.form-check-in {
+	font-size: 14px;
+	line-height: 1.71;
+
+	letter-spacing: 0.03em;
+	color: $color-secondary-text;
+	z-index: 7;
+
+	&__title {
+		margin-top: 0;
+		margin-bottom: 15px;
+
+		font-size: 20px;
+		line-height: 1.15;
+		text-align: center;
+		letter-spacing: 0.03em;
+
+		color: $color-main-text;
+	}
+	&__field {
+		display: block;
+		position: relative;
+		flex-direction: column;
+		margin-bottom: 10px;
+		@media screen and (max-width: 767px) {
+			&:focus-within {
+				color: $accent;
+			}
+		}
+	}
+	&__name {
+		font-style: normal;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 1.17;
+		letter-spacing: 0.01em;
+		margin-bottom: 4px;
+		color: var(--color-secondary-text);
+	}
+	&__text {
+		width: 100%;
+
+		padding: 12px 16px;
+		height: 120px;
+		border: 1px solid rgba(33, 33, 33, 0.2);
+		border-radius: 4px;
+		resize: none;
+
+		transition-duration: 250ms;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		&::placeholder {
+			font-size: 12px;
+			line-height: 1.17;
+			letter-spacing: 0.01em;
+
+			color: rgba(117, 117, 117, 0.5);
+		}
+		&:focus {
+			border-color: $accent;
+			outline: none;
+		}
+	}
+	&__terms {
+		font-size: 12px;
+		line-height: 1.17;
+		font-weight: 400;
+		letter-spacing: 0.03em;
+		@media screen and (min-width: 1200px) {
+			font-size: 14px;
+			line-height: 1.71;
+		}
+	}
+}

@@ -1,0 +1,32 @@
+.filters {
+	display: flex;
+	justify-content: center;
+	font-family: inherit;
+	padding-top: 60px;
+	padding-bottom: 40px;
+	font-size: 16px;
+	line-height: 1.63;
+	text-align: center;
+	letter-spacing: 0.03em;
+
+	&__btn-list {
+		display: flex;
+		flex-wrap: wrap;
+
+		font-family: inherit;
+
+		font-size: 16px;
+		line-height: 1.63;
+		text-align: center;
+		letter-spacing: 0.03em;
+	}
+
+}
+
+.portfolio {
+	&__card-list {
+		display: flex;
+		flex-wrap: wrap;
+		padding-bottom: 60px;
+	}
+}
