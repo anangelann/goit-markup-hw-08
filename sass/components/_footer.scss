@@ -1,0 +1,197 @@
+/*------------FOOTER----------------------*/
+.footer {
+    min-width: 320px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    background: $dark-bg-color;
+}
+
+.footer-container {
+    @extend %container;
+    @include flex-container(space-between, center);
+    flex-direction: column;
+    flex-wrap: wrap;
+    @media screen and (min-width: $mobile-width) {
+        width: $mobile-width;
+    }
+    @media screen and (min-width: $tablet-width) {
+        width: $tablet-width;
+    }
+    @media screen and (min-width: $desktop-width) {
+        width: $desktop-width;
+        flex-direction: row;
+        align-items: baseline;
+    }
+}
+
+.footer__contacts-and-join-block {
+    width: 100%;
+    @include flex-container(space-between, center);
+    flex-direction: column;
+    @media screen and (min-width: $tablet-width) {
+        width: 100%;
+        flex-direction: row;
+    }
+    @media screen and (min-width: $desktop-width) {
+        width: calc(50% - 15px);
+        flex-direction: row;
+        align-items: baseline;
+    }
+}
+
+/*contacts-block-in-footer*/
+.contacts-block-in-footer,
+.join-block-in-footer {
+    @include flex-container(space-between, center);
+    flex-direction: column;
+    margin-bottom: 60px;
+    width: 100%;
+    @media screen and (min-width: $tablet-width) {
+        width: 50%;
+    }
+    @media screen and (min-width: $desktop-width) {
+        width: 50%;
+        margin-bottom: 0;
+        align-items: flex-start;
+    }
+}
+
+/*-------------------*/
+.footer__logo {
+    display: block;
+    margin-bottom: 20px;
+}
+.logo--part-in-footer {
+    color: $white-text-color;
+}
+
+/*-------------------*/
+.address-in-footer {
+    display: block;
+    width: 100%;
+}
+.address-in-footer__list {
+    @include flex-container(space-between, center);
+    flex-direction: column;
+    font-style: normal;
+
+    li:not(:last-child) {
+        margin-bottom: 9px;
+    }
+    @media screen and (min-width: $desktop-width) {
+        align-items: flex-start;
+    }
+}
+
+%footer-link-font {
+    line-height: 1.71;
+    text-decoration: none;
+}
+.address-in-footer__text {
+    .address-in-footer__link {
+        @extend %footer-link-font;
+        color: $white-text-color;
+    }
+}
+.address-in-footer__element {
+    .address-in-footer__link {
+        @extend %footer-link-font;
+        color: $third-text-color;
+
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &:hover,
+    &:focus {
+        .address-in-footer__link {
+            color: $active-color;
+        }
+    }
+}
+
+/*join-block-in-footer*/
+
+.join-block-in-footer__title,
+.newsletter-block-in-footer__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-transform: uppercase;
+    color: $white-text-color;
+}
+.join-block-in-footer .block-social-links {
+    margin-left: 0;
+    margin-right: 0;
+}
+.join-block-in-footer .social-link {
+    background-color: rgba(255, 255, 255, 0.1);
+    fill: $white-text-color;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus {
+        background-color: $active-color;
+    }
+}
+
+/*newsletter-block-in-footer*/
+.newsletter-block-in-footer {
+    width: 100%;
+    @include flex-container(space-between, center);
+    flex-direction: column;
+    @media screen and (min-width: $mobile-width) {
+        width: 450px;
+        align-items: center;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+        width: calc(50% - 15px);
+        align-items: flex-start;
+    }
+}
+.form-newsletter {
+    width: 100%;
+    @include flex-container(space-between, center);
+    flex-direction: column;
+
+    @media screen and (min-width: $desktop-width) {
+        flex-direction: row;
+        align-items: baseline;
+    }
+}
+.form-newsletter__input {
+    //  min-width: 290px;
+    width: 100%;
+    padding: 15px 16px;
+    /*margin-right: 12px;*/
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /*vertical-align: center;*/
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    border-radius: 4px;
+    height: 50px;
+    background-color: $dark-bg-color;
+
+    font-size: 16px;
+    line-height: 1.2;
+    align-items: center;
+    color: $white-text-color;
+}
+.form-newsletter__input::placeholder {
+    color: $third-text-color;
+}
+.form-newsletter__button {
+    @extend %button;
+    @include flex-container($align: center);
+    margin-left: 15px;
+    position: relative;
+    padding: 10px 62px 10px 29px;
+}
+
+.form-newsletter__icon {
+    @include position-container_top_right(absolute, 13px, 28px, 24px, 24px);
+}

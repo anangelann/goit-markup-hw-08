@@ -1,0 +1,291 @@
+/*------------HEADER----------------------*/
+.header {
+    margin: 0 auto;
+    min-width: 320px;
+    height: 80px;
+    border-bottom: 1px solid #ececec;
+
+    @media screen and (max-width: 767px) {
+        max-width: $mobile-width;
+        .header-container {
+            display: none;
+        }
+    }
+    @media screen and (min-width: $tablet-width) {
+        width: $tablet-width;
+        .header-container-mobile {
+            display: none;
+        }
+    }
+    @media screen and (min-width: $desktop-width) {
+        width: $desktop-width;
+    }
+}
+
+.header-container {
+    @extend %container;
+    height: 100%;
+    @media screen and (min-width: $desktop-width) {
+        width: 1200px;
+    }
+    @include flex-container(space-between, center);
+}
+
+/* ------navbar*/
+.navbar-block {
+    @include flex-container(space-between, center);
+    width: 67%;
+}
+
+/*------logo*/
+.logo {
+    display: block;
+
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+    color: $active-color;
+    text-decoration: none;
+
+    &--part-in-header {
+        color: $black-text-color;
+    }
+}
+@media screen and (min-width: $tablet-width) {
+    /*-----nav in Header*/
+    .nav-in-header {
+        @include flex-container(space-between, center);
+    }
+    .nav-in-header__element:not(:last-child) {
+        margin-right: 50px;
+    }
+
+    .nav-in-header__link {
+        position: relative;
+        font-weight: 500;
+        line-height: 1.14;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        color: $main-text-color;
+
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover,
+        &:focus {
+            color: $active-color;
+        }
+    }
+
+    .nav-in-header__link--current {
+        color: $active-color;
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 4px;
+            bottom: -32px;
+
+            background-color: $active-color;
+            border-radius: 2px;
+        }
+    }
+
+    /*-------Contacts in Header*/
+    .contacts-in-header {
+        @include flex-container();
+        width: 33%;
+        flex-direction: column;
+        padding-left: 84px;
+    }
+
+    .contacts-in-header__list-item {
+        @include flex-container(flex-start, center);
+    }
+    .contacts-in-header__list-item:not(:last-child) {
+        margin-bottom: 10px;
+    }
+    .contacts-in-header__element {
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.17;
+        letter-spacing: 0.02em;
+        color: $secondary-text-color;
+
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        &:hover,
+        &:focus {
+            color: $active-color;
+            .contacts-in-header__icon {
+                fill: $active-color;
+            }
+        }
+    }
+
+    .contacts-in-header__icon {
+        vertical-align: middle;
+        fill: currentColor;
+        margin-right: 10px;
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+@media screen and (min-width: $desktop-width) {
+    .navbar-block {
+        width: 50%;
+    }
+    .contacts-in-header {
+        width: 50%;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: baseline;
+        padding: 0;
+    }
+
+    .contacts-in-header__list-item:not(:last-child) {
+        margin-bottom: 0px;
+        margin-right: 30px;
+    }
+}
+
+/*---mobile menu----*/
+.header-container-mobile {
+    position: relative;
+    z-index: 100;
+    @extend %container;
+    height: 100%;
+    @media screen and (min-width: $desktop-width) {
+        width: 1200px;
+    }
+}
+.navbar-block-mobile {
+    @include flex-container(space-between, center);
+    height: 100%;
+}
+
+.menu-toggle {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    @media screen and (min-width: $tablet-width) {
+        display: none;
+    }
+    svg:hover,
+    .svg:focus {
+        fill: $active-color;
+    }
+}
+.menu-toggle .js-open-menu {
+    display: none;
+}
+.menu-toggle.is-open .js-open-menu {
+    display: none;
+}
+.menu-toggle.is-open .js-close-menu {
+    display: block;
+}
+
+.menu-container {
+    background-color: #fff;
+    padding: 0 15px;
+    text-align: center;
+
+    @media screen and (max-width: 767px) {
+        display: none;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        &.is-open {
+            display: block;
+        }
+    }
+}
+.drop-menu {
+    @include flex-container(space-between, flex-start);
+    flex-direction: column;
+    background-color: $main-bg-color;
+    height: 100vh;
+    max-height: 796px;
+    padding: 48px 40px;
+    text-align: left;
+
+    font-weight: 500;
+    letter-spacing: 0.02em;
+
+    .menu-toggle {
+        position: absolute;
+        top: 10px;
+        right: 0;
+    }
+    .nav-and-contacts-block {
+        @include flex-container(space-between, flex-start);
+        flex-direction: column;
+    }
+    .nav-in-header {
+        padding-bottom: 300px;
+        @media screen and (max-height: 750px) {
+            padding-bottom: 50px;
+        }
+    }
+    font-size: 40px;
+    line-height: 1.18;
+    .nav-in-header__element:not(:last-child) {
+        margin-bottom: 32px;
+    }
+    .nav-in-header__link {
+        color: $main-text-color;
+        text-decoration: none;
+    }
+
+    .nav-in-header__link--current {
+        color: $active-color;
+    }
+
+    .contacts-in-header {
+        padding-bottom: 64px;
+
+        .contacts-in-header__element--tel {
+            margin-bottom: 32px;
+
+            font-size: 34px;
+            line-height: 1.18;
+            color: $active-color;
+            text-decoration: none;
+        }
+        .contacts-in-header__element--email {
+            font-size: 24px;
+            line-height: 1.17;
+            color: $secondary-text-color;
+            text-decoration: none;
+        }
+    }
+
+    .social-links-in-header {
+        @include flex-container();
+        flex-wrap: wrap;
+        font-size: 18px;
+        line-height: 1.22;
+        .header-social-link {
+            color: $active-color;
+            text-decoration: none;
+        }
+
+        .social-links-in-header__element:not(:last-child) {
+            padding-right: 10px;
+            border-right: 1px solid rgba(33, 33, 33, 0.2);
+        }
+        .social-links-in-header__element:not(:first-child) {
+            padding-left: 10px;
+        }
+    }
+}

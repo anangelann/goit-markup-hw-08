@@ -1,11 +1,141 @@
-//Переменные цветов
-$primary-bg-color: #ffffff;
-$secondary-bg-color: #2f303a;
-$color-main-text: #212121;
-$color-secondary-text: #757575;
-$white: #ffffff;
-$accent: #2196f3;
-$color-bg-advantges: #f5f4fa;
-$color-icon-our-clients: #afb1b8;
-$color-footers-link: rgba(255, 255, 255, 0.6);
-$color-ftr-social-link: rgba(255, 255, 255, 0.1);
+/*---------VARS-&-UTILS-------------*/
+$main-bg-color: #fff;
+$dark-bg-color: #2f303a;
+$button-bg-color: #f5f4fa;
+$active-color: #2196f3;
+$second-active-color: #188ce8;
+
+$main-text-color: #212121;
+$secondary-text-color: #757575;
+$white-text-color: #fff;
+$black-text-color: #000;
+$third-text-color: rgba(255, 255, 255, 0.6);
+
+$icon-no-activ-color: #afb1b8;
+
+$mobile-width: 480px;
+$between-container-mobile: 60px;
+
+$tablet-width: 768px;
+$between-container-tablet: 60px;
+
+$desktop-width: 1200px;
+$container-desktop-width: 1200px;
+$between-container-desktop: 94px;
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: 0.03em;
+    color: $main-text-color;
+    background-color: $main-bg-color;
+    box-sizing: border-box;
+}
+.list {
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+p {
+    padding: 0;
+    margin: 0;
+}
+.flex-container {
+    display: flex;
+}
+%container {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.visualy-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+}
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+a {
+    display: block;
+}
+%block-social-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 206px;
+    height: 44px;
+}
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+%button {
+    font-family: inherit;
+    background-color: $active-color;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border: none;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.88;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: $white-text-color;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus {
+        background-color: $second-active-color;
+    }
+}
+@mixin flex-container($justify: flex-start, $align: stretch) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin position-container_top_left($pos, $t, $l, $h, $w) {
+    position: $pos;
+    top: $t;
+    left: $l;
+    height: $h;
+    width: $w;
+}
+@mixin position-container_top_right($pos, $t, $r, $h, $w) {
+    position: $pos;
+    top: $t;
+    right: $r;
+    height: $h;
+    width: $w;
+}
+@mixin position-container_bottom($pos, $b, $h, $w) {
+    position: $pos;
+    bottom: $b;
+    height: $h;
+    width: $w;
+}

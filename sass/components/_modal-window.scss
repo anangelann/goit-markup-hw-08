@@ -1,0 +1,205 @@
+/*------------MODAL-WINDOW----------*/
+.backdrop {
+    @include position-container_top_left(fixed, 0, 0, 100vh, 100vw);
+
+    background-color: rgba(0, 0, 0, 0.2);
+
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    overflow-y: scroll;
+}
+.backdrop.is-hidden {
+    visibility: none;
+    opacity: 0;
+    pointer-events: none;
+}
+.backdrop.is-hidden .modal-window {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+}
+
+.modal-window {
+    //height: auto;
+    min-width: 290px;
+    min-height: 500px;
+
+    @include position-container_top_left(
+        absolute,
+        50%,
+        50%,
+        600px,
+        calc(100% - 30px)
+    );
+
+    @media screen and (min-width: $mobile-width) {
+        @include position-container_top_left(absolute, 50%, 50%, 609px, 450px);
+    }
+
+    padding: 40px;
+
+    background-color: $main-bg-color;
+
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        opasity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-window__btn-close {
+    @include flex-container(center, center);
+    @include position-container_top_right(absolute, 8px, 8px, 30px, 30px);
+    cursor: pointer;
+    margin-left: auto;
+
+    background-color: $main-bg-color;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover .modal-window__icon-close {
+        fill: $active-color;
+    }
+}
+
+/*------form of modal------*/
+.modal-window-form__title {
+    margin-bottom: 12px;
+
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.5;
+    /*line-height: 1.1;*/
+    text-align: center;
+    color: $main-text-color;
+    @media screen and (max-width: 350px) {
+        font-size: 16px;
+    }
+}
+.modal-form-field__inputs {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-field {
+    margin-bottom: 10px;
+}
+.form-field label {
+    display: block;
+}
+.form-field__label {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    padding: 0;
+
+    color: $secondary-text-color;
+}
+.form-field__input-block {
+    position: relative;
+    margin-top: 4px;
+}
+
+.form-field__input {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    padding: 12px 42px;
+
+    font: inherit;
+}
+.form-field__icon {
+    position: absolute;
+    top: 30%;
+    left: 15px;
+}
+.form-field__input:focus-within + .form-field__icon {
+    fill: $active-color;
+}
+.form-field__input:focus-within,
+.txtarea-input:focus-within {
+    border: 1px solid $active-color;
+    outline: none;
+}
+
+.form-field-txtarea {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
+.form-field-txtarea__input {
+    resize: none;
+    width: 100%;
+    height: 120px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    padding: 12px 16px;
+    outline: none;
+    margin-top: 4px;
+
+    &::placeholder {
+        font-size: 14px;
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+        color: rgba(117, 117, 117, 0.5);
+    }
+}
+
+.checkbox-block {
+    @include flex-container(center, center);
+}
+.checkbox-block__box {
+    display: inline-block;
+}
+.checkbox-block__icon {
+    display: inline-block;
+    width: 16px;
+    height: 15px;
+    border: 2px solid $main-text-color;
+    border-radius: 4px;
+    margin-right: 7px;
+}
+.checkbox-block__text {
+    display: inline-block;
+
+    font-size: 12px;
+    line-height: 1.17;
+    color: $secondary-text-color;
+}
+.checkbox-block__span-link {
+    display: inline-block;
+}
+.checkbox-block__box:checked + .checkbox-block__icon {
+    border-color: transparent;
+    background-color: $active-color;
+    background-image: url("../images/svg/check.svg");
+    background-size: contain;
+    background-origin: border-box;
+}
+
+.modal-window-form__button {
+    @extend %button;
+    display: block;
+    margin: 30px auto 0 auto;
+    padding: 0;
+}
+
+@media screen and (min-width: $desktop-width) {
+    .modal-window {
+        @include position-container_top_left(absolute, 50%, 50%, 581px, 528px);
+    }
+    .form-field__label {
+        font-size: 14px;
+        line-height: 1.1;
+    }
+    .checkbox-block__text {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+}

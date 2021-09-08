@@ -1,0 +1,52 @@
+/*-----block Make*/
+.make-section {
+    @media screen and (max-width: $desktop-width - 1px) {
+        display: none;
+    }
+    width: $desktop-width;
+    margin: 0 auto;
+    padding-top: 0;
+    padding-bottom: 94px;
+}
+.make-list__img {
+    object-fit: cover;
+}
+.make-container {
+    @extend %container;
+    width: 1200px;
+}
+.make-section__title {
+    text-align: center;
+    margin-bottom: 50px;
+
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.17;
+    text-align: center;
+    color: $main-text-color;
+}
+.make-list {
+    @include flex-container();
+}
+.make-list__item {
+    position: relative;
+
+    &:not(:last-child) {
+        margin-right: 30px;
+    }
+}
+
+.make-list__overlay-block {
+    @include flex-container(center, center);
+    @include position-container_bottom(absolute, 0px, 70px, 100%);
+
+    background-color: rgba(47, 48, 58, 0.8);
+}
+.make-list__title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-transform: uppercase;
+
+    color: $white-text-color;
+}
